@@ -4,5 +4,9 @@ export default {
   }),
   prevStep: () => ({
     type: 'PREVIOUS'
+  }),
+  setLocation: (router) => ({
+    type: 'LOCATION_CHANGE',
+    router
   })
 }
