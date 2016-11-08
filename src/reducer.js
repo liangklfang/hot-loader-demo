@@ -1,4 +1,7 @@
 import { combineReducers } from 'redux';
+import createBrowserHistory from 'history/createBrowserHistory';
+
+const history = createBrowserHistory();
 
 
 const counterStore = (state = 1, action) => {
@@ -14,15 +17,15 @@ const counterStore = (state = 1, action) => {
 
 
 const routerDefaultState = {
-  pathname: location.pathname,
-  search: location.search,
-  hash: location.hash
-};
+  history,
+  location: history.location,
+  action: history.action
+}
 
 const routerStore = (state = routerDefaultState, action) => {
   switch (action.type) {
     case 'LOCATION_CHANGE':
-      return action.router;
+      return Object.assign({}, state, action.router);
     default:
       return state;
   }
