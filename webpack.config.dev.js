@@ -1,5 +1,5 @@
-const path = require('path');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
   devtool: 'eval',
@@ -21,7 +21,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel',
+        use: 'babel',
         include: path.resolve('./src')
       }
     ]
