@@ -6,7 +6,8 @@ module.exports = {
   entry: [
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
-    './src/main.js'
+    './src/main.js',
+    './styles/main.css'
   ],
   output: {
     filename: 'main.js',
@@ -21,8 +22,12 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: 'babel',
+        use: 'babel-loader',
         include: path.resolve('./src')
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   }

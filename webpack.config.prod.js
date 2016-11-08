@@ -1,16 +1,19 @@
 const webpack = require('webpack');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
   entry: [
-    './src/main.js'
+    './src/main.js',
+    './styles/main.css'
   ],
   output: {
-    filename: 'main.js',
+    filename: '[name].js',
     path: path.resolve('./dist'),
   },
   plugins: [
+    new ExtractTextPlugin('[name].css'),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       mangle: {
@@ -50,8 +53,17 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: 'babel',
+        use: 'babel-loader',
         include: path.resolve('./src'),
+      },
+      {
+        test: /\.css$/,
+        // Use `loader` instead of `use` due to
+        // https://github.com/webpack/extract-text-webpack-plugin/issues/265
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader'
+        })
       }
     ]
   }
