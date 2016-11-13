@@ -11,7 +11,7 @@ The goal of this repository is to provide a minimal, out-of-the-box working star
 
 ## Libraries
 - React
-- Redux
+- Redux & React Redux 5
 - React Router 4
 - Redux-controlled router
 - React Hot Reload 3
@@ -23,7 +23,7 @@ This project uses as little transpilation as possible as it fits my use-case (El
 ## Using with ES2015 preset
 As pointed [here](https://github.com/gaearon/react-hot-loader/issues/410), using with `babel-preset-es2015` requires some additional configuration. You can either:
 
-1. Use Babel module transpiling — in that case, you will need to re-require the app module on `module.hot.accept`. Edit [`./src/main.js`](https://github.com/patrikholcak/hot-loader-demo/blob/master/src/main.js#L30) as follows:
+### 1. Use Babel module transpiling — in that case, you will need to re-require the app module on `module.hot.accept`. Edit [`./src/main.js`](https://github.com/patrikholcak/hot-loader-demo/blob/master/src/main.js#L30) as follows:
 
 ```js
   module.hot.accept('./app', () => {
@@ -40,7 +40,7 @@ As pointed [here](https://github.com/gaearon/react-hot-loader/issues/410), using
   });
 ```
 
-2. Use native modules & tree shaking — just opt-out of Babel module transpiling.
+### 2. Use native modules & tree shaking — just opt-out of Babel module transpiling.
 
 ```json
 {
