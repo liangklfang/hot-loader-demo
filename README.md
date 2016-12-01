@@ -29,14 +29,7 @@ As pointed [here](https://github.com/gaearon/react-hot-loader/issues/410), using
   module.hot.accept('./app', () => {
     const NextApp = require('./app');
 
-    ReactDOM.render(
-      <AppContainer>
-        <Provider store={store}>
-          <NextApp />
-        </Provider>
-      </AppContainer>,
-      rootEl
-    );
+    renderApp(NextApp);
   });
 ```
 
