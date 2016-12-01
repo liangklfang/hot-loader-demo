@@ -11,7 +11,7 @@ The goal of this repository is to provide a minimal, out-of-the-box working star
 
 ## Libraries
 - React
-- Redux & React Redux 5
+- Redux & React Redux
 - React Router 4
 - Redux-controlled router
 - React Hot Reload 3
