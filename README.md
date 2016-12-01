@@ -27,7 +27,7 @@ As pointed [here](https://github.com/gaearon/react-hot-loader/issues/410), using
 
 ```js
   module.hot.accept('./app', () => {
-    const NextApp = require('./app');
+    const NextApp = require('./app').default;
 
     renderApp(NextApp);
   });
