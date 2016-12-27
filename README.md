@@ -61,3 +61,5 @@ if (module.hot) {
 ## CSS
 I didn’t want to provide (or force) the use of a particular css preprocessor or workflow so only `style-loader` and `css-loader` are included. If you are looking for a good css compiler, check out [PostCSS](https://github.com/postcss/postcss).
 
+# License
+MIT
