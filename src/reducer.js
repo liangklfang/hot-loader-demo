@@ -15,14 +15,7 @@ const counterStore = (state = 1, action) => {
   }
 };
 
-
-const routerDefaultState = {
-  history,
-  location: history.location,
-  action: history.action
-}
-
-const routerStore = (state = routerDefaultState, action) => {
+const routerStore = (state = history, action) => {
   switch (action.type) {
     case 'LOCATION_CHANGE':
       return Object.assign({}, state, action.router);

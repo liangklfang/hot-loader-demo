@@ -11,7 +11,7 @@ import Counter from './routes/counter';
 
 const App = ({ router, setLocation }) => (
   <Router
-    history={router.history}
+    history={router}
     location={router.location}
     action={router.action}
     onChange={(routerState, action) => {
