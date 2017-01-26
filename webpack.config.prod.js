@@ -58,9 +58,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        // Use `loader` instead of `use` due to
-        // https://github.com/webpack/extract-text-webpack-plugin/issues/265
-        loader: ExtractTextPlugin.extract({
+        use: ExtractTextPlugin.extract({
           fallbackLoader: 'style-loader',
           loader: 'css-loader'
         })
