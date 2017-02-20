@@ -8,7 +8,7 @@ import appReducer from './reducer';
 
 import App from './app';
 
-const store = createStore(appReducer);
+const store = createStore(appReducer, window.__REDUX_DEVTOOLS_EXTENSION__());
 
 const rootEl = document.getElementById('root');
 const renderApp = (Component = App) => {
