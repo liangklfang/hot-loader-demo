@@ -12,7 +12,7 @@
     "react-history": "^0.18.1",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-redux": "^5.0.1",
-    "react-router": "^4.0.0-alpha.6",
+    "react-router": "4.0.0-alpha.6",
     "react-router-addons-controlled": "^0.0.1",
     "redux": "^3.6.0"
   },
