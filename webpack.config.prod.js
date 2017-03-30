@@ -13,6 +13,9 @@ module.exports = {
     path: path.resolve('./dist'),
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
     new ExtractTextPlugin('[name].css'),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
