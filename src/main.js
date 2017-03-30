@@ -1,21 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import { routerMiddleware } from 'react-router-redux';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 import appReducer from './reducer';
 
 import App from './app';
 
-const store = createStore(appReducer);
+const history = createBrowserHistory();
+const store = createStore(
+  appReducer,
+  applyMiddleware(routerMiddleware(history))
+);
 
 const rootEl = document.getElementById('root');
 const renderApp = (Component = App) => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <Component />
+        <Component history={history} />
       </Provider>
     </AppContainer>,
     rootEl

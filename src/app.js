@@ -1,39 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { Match } from 'react-router';
-import Router from 'react-router-addons-controlled/ControlledBrowserRouter';
-
-import actions from './actions';
+import { Route } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
 
 import Home from './routes/home';
 import Counter from './routes/counter';
 
-
-const App = ({ router, setLocation }) => (
-  <Router
-    history={router}
-    location={router.location}
-    action={router.action}
-    onChange={(routerState, action) => {
-      // https://github.com/ReactTraining/react-router-addons-controlled/blob/master/redux-example/index.js#L55
-      setLocation(routerState, action === 'SYNC' ? router.action : action);
-    }}
-  >
+const App = ({ history }) => (
+  <ConnectedRouter history={history}>
     <div>
-      <Match exactly pattern="/" component={Home} />
-      <Match exactly pattern="/counter" component={Counter} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/counter" component={Counter} />
     </div>
-  </Router>
+  </ConnectedRouter>
 );
 
-const stateToProps = ({ router }) => {
-  return { router };
-};
-
-const dispatchToProps = (dispatch) => {
-  return {
-    setLocation: (routerState, action) => dispatch(actions.setLocation(routerState, action))
-  }
-}
-
-export default connect(stateToProps, dispatchToProps)(App);
+export default App;

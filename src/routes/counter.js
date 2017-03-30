@@ -14,9 +14,7 @@ const Counter = ({ counter, dispatch }) => (
     <button onClick={() => dispatch(actions.prevStep())}>prev</button>
     <hr />
 
-    <a href="javascript:;" onClick={() => dispatch(actions.setLocation({
-      pathname: '/'
-    }))}>
+    <a href="javascript:;" onClick={() => dispatch(actions.setLocation('/'))}>
       Link back home using a Redux action
     </a>
   </div>

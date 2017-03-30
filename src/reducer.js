@@ -1,7 +1,5 @@
 import { combineReducers } from 'redux';
-import createBrowserHistory from 'history/createBrowserHistory';
-
-const history = createBrowserHistory();
+import { routerReducer } from 'react-router-redux';
 
 
 const counterStore = (state = 1, action) => {
@@ -15,16 +13,7 @@ const counterStore = (state = 1, action) => {
   }
 };
 
-const routerStore = (state = history, action) => {
-  switch (action.type) {
-    case 'LOCATION_CHANGE':
-      return Object.assign({}, state, action.router);
-    default:
-      return state;
-  }
-};
-
 export default combineReducers({
   counter: counterStore,
-  router: routerStore
+  router: routerReducer
 });

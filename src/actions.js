@@ -1,3 +1,6 @@
+import { push } from 'react-router-redux';
+
+
 export default {
   nextStep: () => ({
     type: 'NEXT'
@@ -5,11 +8,5 @@ export default {
   prevStep: () => ({
     type: 'PREVIOUS'
   }),
-  setLocation: (routerState, action = 'PUSH') => ({
-    type: 'LOCATION_CHANGE',
-    router: {
-      action,
-      location: routerState
-    }
-  })
+  setLocation: (location) => push(location)
 }
